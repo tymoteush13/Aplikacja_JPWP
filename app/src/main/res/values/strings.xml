@@ -4,4 +4,7 @@
     <string name="toast_button_text">Toast</string>
     <string name="random_button_text">Random</string>
     <string name="count_button_text">Count</string>
+    <string name="next_page_button">Next page</string>
+    <string name="previous_page_button">Previous page</string>
+
 </resources>
