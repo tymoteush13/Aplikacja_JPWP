@@ -1,3 +1,4 @@
+
 plugins {
     alias(libs.plugins.androidApplication)
 }
@@ -32,7 +33,7 @@ android {
 }
 
 dependencies {
-
+    implementation ("com.google.mlkit:translate:17.0.2")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
