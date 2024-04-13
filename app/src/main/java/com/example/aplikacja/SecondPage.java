@@ -101,6 +101,7 @@ public class SecondPage extends AppCompatActivity {
         });
 
 
+
     }
     private String sourceLanguageText = " ";
     private void validateData() {

@@ -1,102 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondPage">
+    android:background="@drawable/background1"
+    tools:context=".SecondPage"
+    >
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
 
         <LinearLayout
-            android:layout_above="@id/options"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
+            <LinearLayout
+                android:id="@+id/cosinnego"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/curly">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/memomasters_logo_foreground"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Translator"
+                    android:textColor="@android:color/black"
+                    android:textSize="48dp"
+                    android:textStyle="bold"
+                    android:typeface="serif" />
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cosinnego1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/SourceLanguageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select language"
+                android:layout_weight="1"
+                android:textSize="12dp"
+                android:textColor="@color/black"
+                android:background="@drawable/przyciski"
+                android:padding="10dp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/change"
+                android:padding="20dp"
+                android:background="?attr/selectableItemBackground"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:contentDescription="Button to do nothing" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/TranslatedLanguageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select language"
+                android:layout_weight="1"
+                android:background="@drawable/przyciski"
+                android:textSize="12dp"
+                android:textColor="@color/black"
+                android:padding="10dp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/ramka"
+            android:layout_marginTop="15dp">
+
             <EditText
                 android:id="@+id/SourceLanguage"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="left"
                 android:hint="Enter phrase"
-                android:minHeight="100dp"
-                android:gravity="start"
-                android:textSize="18sp"/>
+                android:minHeight="250dp"
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/TranslatedLanguage"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:background="@android:color/transparent"
+                android:hint="Translated phrase"
+                android:gravity="start"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                android:paddingTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:minHeight="250dp"
+                android:textSize="18sp" />
+
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/Translation_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Translate"
                 android:layout_marginTop="10dp"
-                android:minHeight="100dp"
+                android:background="@drawable/przyciski"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:padding="10dp"/>
+
+            <Button
+                android:id="@+id/prev_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="right"
+                android:text="Back"
                 />
-
-
-
         </LinearLayout>
     </ScrollView>
-    <LinearLayout
-        android:id="@+id/options"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_above="@+id/Translation_button"
-        android:layout_marginBottom="5dp">
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/SourceLanguageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select language"
-            android:background="@drawable/okragle"
-            android:layout_weight="1"
-            />
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/change"
-            android:padding="10dp"
-            android:background="@android:color/transparent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"/>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/TranslatedLanguageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select language"
-            android:layout_weight="1"
-            />
 
-    </LinearLayout>
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/Translation_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Translate"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="55dp"
-        android:background="@drawable/okragle"/>
-
-    <Button
-        android:id="@+id/prev_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:text="Back" />
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
