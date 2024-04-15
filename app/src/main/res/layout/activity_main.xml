@@ -5,43 +5,90 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/screenBackground"
+    android:background="@drawable/moving_background"
     android:visibility="visible"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/numbers"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/cosinnego"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/screenBackground"
-        android:fontFamily="sans-serif"
-        android:text="@string/hello_world"
-        android:textColor="@android:color/white"
-        android:textSize="72sp"
-        android:textStyle="bold"
-        app:layout_constraintVertical_bias="0.3"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:background="@drawable/curly"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/memomasters_logo_foreground"
+            android:contentDescription="@android:string/ok"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Home Page"
+            android:textColor="@android:color/black"
+            android:textSize="46sp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/cosinnego"
+        android:layout_marginLeft="20dp"
+        android:gravity="center"
+        android:layout_marginRight="20dp"
+        app:layout_constraintVertical_bias="0.75">
 
+        <ImageButton
+            android:id="@+id/home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_button"
+            android:contentDescription="@string/button_description"
+            android:padding="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/sharp_family_home_24" />
 
+        <ImageButton
+            android:id="@+id/SecondActivitybutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_button"
+            android:contentDescription="@string/button_description"
+            android:padding="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/baseline_g_translate_24" />
 
+        <ImageButton
+            android:id="@+id/Account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/circle_button"
+            android:contentDescription="@string/button_description"
+            android:padding="20dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/sharp_account_circle_24" />
+    </LinearLayout>
 
-
-
-
-    <Button
-        android:id="@+id/SecondActivitybutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="113dp"
-        android:layout_marginBottom="37dp"
-        android:text="@string/next_page_button"
-        android:background="@drawable/okragle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

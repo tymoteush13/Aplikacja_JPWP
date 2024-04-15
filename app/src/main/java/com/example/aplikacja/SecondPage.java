@@ -1,7 +1,7 @@
 package com.example.aplikacja;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -29,12 +31,12 @@ import com.google.mlkit.nl.translate.Translation;
 import com.google.mlkit.nl.translate.Translator;
 import com.google.mlkit.nl.translate.TranslatorOptions;
 
-import java.net.ProtocolException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import javax.xml.transform.Source;
+
 
 public class SecondPage extends AppCompatActivity {
     private EditText sourceLanguage;
@@ -44,7 +46,6 @@ public class SecondPage extends AppCompatActivity {
     private MaterialButton TranslationButton;
     private TranslatorOptions TranslatorOptions;
     private Translator Translator;
-    private ProgressDialog ProgressDialog;
     private ArrayList<ModelLanguage>languageArrayList;
     private static final String TAG = "MAIN_TAG";
     private String sourceLanguageCode = "en";
@@ -61,7 +62,16 @@ public class SecondPage extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Button button = findViewById(R.id.prev_button);
+
+        // Zmiana tła
+        ConstraintLayout constraintLayout = findViewById(R.id.main);
+        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2500);
+        animationDrawable.setExitFadeDuration(5000);
+        animationDrawable.start();
+
+
+        ImageButton button = findViewById(R.id.prev_button);
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -70,14 +80,20 @@ public class SecondPage extends AppCompatActivity {
             }
 
         });
+
+        ImageButton changeLanguageButton = findViewById(R.id.change_language);
+        changeLanguageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                swapLanguages();
+            }
+        });
+
         sourceLanguage = findViewById(R.id.SourceLanguage);
         translatedLanguage =findViewById(R.id.TranslatedLanguage);
         SourceChooseLanguageButton = findViewById(R.id.SourceLanguageButton);
         TranslatedLanguageButton = findViewById(R.id.TranslatedLanguageButton);
         TranslationButton = findViewById(R.id.Translation_button);
-        ProgressDialog = new ProgressDialog(this);
-        ProgressDialog.setTitle("Please wait");
-        ProgressDialog.setCanceledOnTouchOutside(false);
         loadLanguages();
         
         SourceChooseLanguageButton.setOnClickListener(new View.OnClickListener() {
@@ -109,15 +125,14 @@ public class SecondPage extends AppCompatActivity {
         Log.d(TAG, "validateData: sourceLanguageText"+ sourceLanguageText );
         if(sourceLanguageText.isEmpty()){
             Toast.makeText(this,"Enter text to translate...", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else if (sourceLanguageTitle.equals("Select language")) {
+            Toast.makeText(this, "Please select source language.", Toast.LENGTH_SHORT).show();
+        } else {
             startTranslations();
         }
     }
 
     private void startTranslations() {
-        ProgressDialog.setMessage("Processing language model...");
-        ProgressDialog.show();
 
         TranslatorOptions = new TranslatorOptions.Builder().setSourceLanguage(sourceLanguageCode).setTargetLanguage(destinationLanguageCode).build();
         Translator = Translation.getClient(TranslatorOptions);
@@ -126,7 +141,6 @@ public class SecondPage extends AppCompatActivity {
             @Override
             public void onSuccess(Void unused) {
                 Log.d(TAG,"On success: model ready, starting translate");
-                ProgressDialog.setMessage("Translating...");
                 Translator.translate(sourceLanguageText).addOnSuccessListener(new OnSuccessListener<String>() {
                     @Override
                     public void onSuccess(String translatedText) {
@@ -136,7 +150,6 @@ public class SecondPage extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        ProgressDialog.dismiss();
                         Log.e(TAG, "onFailure: ",e );
                         Toast.makeText(SecondPage.this ,"Failed due to"+ e.getMessage(),Toast.LENGTH_SHORT ).show();
                     }
@@ -147,7 +160,6 @@ public class SecondPage extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        ProgressDialog.dismiss();
                         Log.e(TAG, "onFailure: ",e );
                         Toast.makeText(SecondPage.this ,"Failed due to"+ e.getMessage(),Toast.LENGTH_SHORT ).show();
                     }
@@ -201,6 +213,27 @@ public class SecondPage extends AppCompatActivity {
 
     }
 
+
+    private void swapLanguages() {
+        String temp = sourceLanguage.getText().toString();
+        sourceLanguage.setText(translatedLanguage.getText().toString());
+        translatedLanguage.setText(temp);
+
+        String tempCode = sourceLanguageCode;
+        sourceLanguageCode = destinationLanguageCode;
+        destinationLanguageCode = tempCode;
+
+        int tempId = SourceChooseLanguageButton.getId();
+        SourceChooseLanguageButton.setId(TranslatedLanguageButton.getId());
+        TranslatedLanguageButton.setId(tempId);
+
+        MaterialButton tempButton = SourceChooseLanguageButton;
+        SourceChooseLanguageButton = TranslatedLanguageButton;
+        TranslatedLanguageButton = tempButton;
+
+        SourceChooseLanguageButton.setText(sourceLanguageTitle);
+        TranslatedLanguageButton.setText(destinationLanguageTitle);
+    }
 
 
     private void loadLanguages() {

@@ -7,6 +7,7 @@
     <string name="next_page_button">Next page</string>
     <string name="previous_page_button">Previous page</string>
     <string name="clicked_d_times">Clicked %d times</string>
+    <string name="button_description">Przycisk drugiej aktywności</string>
 
 
 </resources>

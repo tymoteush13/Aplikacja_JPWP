@@ -3,5 +3,10 @@
 
     <item android:drawable="@color/white"/>
     <item   android:drawable="@drawable/logo" android:gravity="center"/>
+    <objectAnimator
+        android:duration="6000"
+        android:propertyName="rotation"
+        android:valueFrom="0"
+        android:valueTo="360" />
 
 </layer-list>
