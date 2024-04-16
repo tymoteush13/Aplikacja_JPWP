@@ -18,5 +18,6 @@
 
 # Zadanie 3
 ## Dodaj przycisk do następnej strony
-- dodaj przycisk o nazwie Next
-- 
+- dodaj przycisk o nazwie Next w pliku activity_main.xml
+- stwórz nową aktywność (Empty Views Activity)
+- wykonaj przejście na druga stronę po kliknieciu przycisku Next
