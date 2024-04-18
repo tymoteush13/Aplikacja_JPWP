@@ -31,3 +31,4 @@
 ![obraz](https://github.com/tymoteush13/Aplikacja_JPWP/assets/150467667/4d9837d2-78bb-4065-aa46-a0f6c98a2ae2) ,        ![obraz](https://github.com/tymoteush13/Aplikacja_JPWP/assets/150467667/c7aec67d-cff0-46d7-90e0-1470a9495f5d)
 
 
+# Powodzenia! 🤗
