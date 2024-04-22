@@ -42,8 +42,8 @@ public class SecondPage extends AppCompatActivity {
     private ArrayList<ModelLanguage>languageArrayList;
     private static final String TAG = "MAIN_TAG";
     private String InputLanguageCode;
-    private String InputLanguageTitle = "Select language";
-    private String OutputLanguageTitle = "Select language";
+    private String InputLanguageTitle;
+    private String OutputLanguageTitle;
     private String OutputLanguageCode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,6 @@ public class SecondPage extends AppCompatActivity {
             return insets;
         });
 
-        // Zmiana tła
         ConstraintLayout constraintLayout = findViewById(R.id.main);
         AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2500);
@@ -70,20 +69,20 @@ public class SecondPage extends AppCompatActivity {
             startActivity(intent);
         });
 
-        ImageButton changeLanguageButton = findViewById(R.id.ChangeButton);
-        changeLanguageButton.setOnClickListener(v -> swapLanguages());
+        ImageButton changeButton = findViewById(R.id.ChangeButton);
+        changeButton.setOnClickListener(v -> swapLanguages());
 
         InputText = findViewById(R.id.InputText);
         OutputText =findViewById(R.id.OutputText);
         InputLanguageButton = findViewById(R.id.InputLanguageButton);
         OutputLanguageButton = findViewById(R.id.OutputLanguageButton);
         MaterialButton translationButton = findViewById(R.id.TranslationButton);
+
         loadLanguages();
-        
+        changeButton.setOnClickListener(v -> swapLanguages());
         InputLanguageButton.setOnClickListener(v -> selectSourceLanguage());
         OutputLanguageButton.setOnClickListener(v -> selectDestinationLanguage());
         translationButton.setOnClickListener(v -> validateData());
-
 
 
     }
@@ -93,8 +92,10 @@ public class SecondPage extends AppCompatActivity {
         Log.d(TAG, "validateData: sourceLanguageText"+ sourceLanguageText );
         if(sourceLanguageText.isEmpty()){
             Toast.makeText(this,"Enter text to translate...", Toast.LENGTH_SHORT).show();
-        } else if (InputLanguageTitle.equals("Select language")) {
-            Toast.makeText(this, "Please select source language.", Toast.LENGTH_SHORT).show();
+        } else if (InputLanguageTitle == null) {
+            Toast.makeText(this, "Please select input language.", Toast.LENGTH_SHORT).show();
+        }else if (OutputLanguageTitle == null) {
+            Toast.makeText(this, "Please select output language.", Toast.LENGTH_SHORT).show();
         } else {
             startTranslations();
         }
@@ -162,7 +163,7 @@ public class SecondPage extends AppCompatActivity {
             OutputLanguageCode = languageArrayList.get(position).LanguageCode;
             OutputLanguageTitle = languageArrayList.get(position).LanguageTitle;
             OutputLanguageButton.setText(OutputLanguageTitle);
-            //show in logs
+
             Log.d(TAG, "onMenuItemClick: destinationLanguageCode" + OutputLanguageCode);
             Log.d(TAG, "onMenuItemClick: destinationLanguageTitle" + OutputLanguageTitle);
 

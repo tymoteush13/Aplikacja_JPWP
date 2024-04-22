@@ -26,13 +26,12 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        // Tło
+
         ConstraintLayout constraintLayout = findViewById(R.id.main);
         AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2500);
         animationDrawable.setExitFadeDuration(5000);
         animationDrawable.start();
-
 
 
         ImageButton imageButton = findViewById(R.id.SecondActivitybutton);
@@ -48,9 +47,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intentThirdPage);
         });
 
-
-
     }
-
 
 }
