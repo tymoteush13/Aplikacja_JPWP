@@ -22,7 +22,7 @@
 
 
 ## Zadanie 3
-### Dodaj przycisk do następnej strony
+### Nawigacja między stronami
 - dodaj przycisk o nazwie Next
 - w stwórz nową aktywność w pakiecie projektu (Empty Views Activity z językiem Java)
 - wykonaj przejście do nowej aktywności
