@@ -239,8 +239,9 @@ public class SecondPage extends AppCompatActivity {
     private void loadLanguages() {
         languageArrayList=new ArrayList<>();
         List<String>languageCodeList = TranslateLanguage.getAllLanguages();
+        Locale polishLocale = new Locale("pl");
         for(String LanguageCode:languageCodeList){
-            String LanguageTitle = new Locale(LanguageCode).getDisplayLanguage();
+            String LanguageTitle = new Locale(LanguageCode).getDisplayLanguage(polishLocale);
             Log.d(TAG,"loadLanguages: LanguageCode "+ LanguageCode);
             Log.d(TAG,"loadLanguages: LanguageTitle "+ LanguageTitle);
 
