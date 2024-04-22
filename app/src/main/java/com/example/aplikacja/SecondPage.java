@@ -111,6 +111,7 @@ public class SecondPage extends AppCompatActivity {
             Translator.translate(sourceLanguageText).addOnSuccessListener(translatedText -> {
                 Log.d(TAG, "onSuccess: TranslatedText"+ translatedText);
                 OutputText.setText(translatedText);
+                OutputText.setTextColor(getResources().getColor(android.R.color.black));
             }).addOnFailureListener(e -> {
                 Log.e(TAG, "onFailure: ",e );
                 Toast.makeText(SecondPage.this ,"Failed due to"+ e.getMessage(),Toast.LENGTH_SHORT ).show();
