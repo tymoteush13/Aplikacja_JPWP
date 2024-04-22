@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/circle_button"
             android:contentDescription="@string/button_description"
-            android:padding="20dp"
+            android:padding="25dp"
             android:layout_marginRight="20dp"
             android:src="@drawable/sharp_family_home_24" />
 
@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/circle_button"
             android:contentDescription="@string/button_description"
-            android:padding="20dp"
+            android:padding="25dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:src="@drawable/baseline_g_translate_24" />
@@ -85,9 +85,9 @@
             android:layout_gravity="right"
             android:background="@drawable/circle_button"
             android:contentDescription="@string/button_description"
-            android:padding="20dp"
+            android:padding="25dp"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/sharp_account_circle_24" />
+            android:src="@drawable/baseline_library_books_24" />
     </LinearLayout>
 
 

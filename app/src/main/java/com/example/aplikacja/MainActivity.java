@@ -36,23 +36,16 @@ public class MainActivity extends AppCompatActivity {
 
 
         ImageButton imageButton = findViewById(R.id.SecondActivitybutton);
-        imageButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,SecondPage.class);
-                startActivity(intent);
-            }
-
+        imageButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this,SecondPage.class);
+            startActivity(intent);
         });
 
 
         ImageButton flashcardsButton = findViewById(R.id.Flashcards);
-        flashcardsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentThirdPage = new Intent(MainActivity.this,ThirdPage.class);
-                startActivity(intentThirdPage);
-            }
+        flashcardsButton.setOnClickListener(v -> {
+            Intent intentThirdPage = new Intent(MainActivity.this,ThirdPage.class);
+            startActivity(intentThirdPage);
         });
 
 
