@@ -45,9 +45,19 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+
+        ImageButton flashcardsButton = findViewById(R.id.Flashcards);
+        flashcardsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentThirdPage = new Intent(MainActivity.this,ThirdPage.class);
+                startActivity(intentThirdPage);
+            }
+        });
+
+
+
     }
-
-
 
 
 }
