@@ -24,16 +24,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
 
-
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         String createTableStatement = "CREATE TABLE "+FLASHCARDS_TABLE+ " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_WORDS + " TEXT, " + COLUMN_TRANSLATIONS + " TEXT)";
 
-        //String createTableStatement = "CREATE TABLE "+FLASHCARDS_TABLE+ " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_WORDS + " TEXT, " + COLUMN_WORDS + " TEXT, " + COLUMN_ACTIVE_CUSTOMER + " TEXT)";
-
         db.execSQL(createTableStatement);
-
     }
 
     @Override
@@ -48,22 +43,18 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_WORDS,modelFlashcards.getWord());
         cv.put(COLUMN_TRANSLATIONS,modelFlashcards.getTranslation());
 
-
         long insert = db.insert(FLASHCARDS_TABLE, null, cv);
-
 
         if (insert == -1){
             return false;
         }else {
             return true;
         }
-
     }
 
     public List<ModelFlashcards> getEveryone(){
 
         List<ModelFlashcards> returnList = new ArrayList<>();
-
 
         String queryString = "SELECT * FROM "+FLASHCARDS_TABLE;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -71,7 +62,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(queryString,null);
 
         if (cursor.moveToFirst()){
-
             do {
                 int flashcardId = cursor.getInt(0);
                 String flashcardWord = cursor.getString(1);
@@ -79,13 +69,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
                 ModelFlashcards newModelFlashcards = new ModelFlashcards(flashcardWord,flashcardTranslation,flashcardId);
                 returnList.add(newModelFlashcards);
-
             }while (cursor.moveToNext());
 
         }else{
 
         }
-
         cursor.close();
         db.close();
         return returnList;
@@ -105,9 +93,18 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             return false;
         }
 
-
     }
 
+    public boolean isDuplicate(String word, String translation) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String queryString = "SELECT * FROM " + FLASHCARDS_TABLE + " WHERE " +
+                COLUMN_WORDS + " = ? AND " + COLUMN_TRANSLATIONS + " = ?";
+        Cursor cursor = db.rawQuery(queryString, new String[]{word, translation});
+        boolean isDuplicate = cursor.getCount() > 0;
+        db.close();
+        cursor.close();
+        return isDuplicate;
+    }
 
 
 }

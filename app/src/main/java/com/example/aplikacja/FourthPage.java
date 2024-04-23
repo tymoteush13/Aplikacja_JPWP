@@ -76,8 +76,6 @@ public class FourthPage extends AppCompatActivity {
 
         });
 
-
-
         btn_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,8 +105,6 @@ public class FourthPage extends AppCompatActivity {
                     Log.e(TAG, "onFailure: ",e );
                 }
 
-
-
             }
         });
 
@@ -127,11 +123,14 @@ public class FourthPage extends AppCompatActivity {
             ModelFlashcards flashcardModel = flashcards.get(randomNumber);
             tv_word.setText(flashcardModel.getWord());
             Log.d(TAG,"Correct show flashcard");
-        }else{
-            tv_word.setText("You need to create flashcards!");
             Log.d(TAG,"List of Flashcard is not empty");
+        }else{
+            tv_word.setText("You need to create new flashcards!");
+            Log.d(TAG,"List of Flashcard is empty");
         }
 
     }
+
+
 
 }
