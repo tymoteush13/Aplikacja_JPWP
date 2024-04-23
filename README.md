@@ -13,8 +13,8 @@
 
 ## Zadanie 2
 ### Dodaj wiadomość Toast 
-- Dodaj przycisk o nazwie Toast pod tekstem Hello World!
-- wykorzystując sposób łączenia obiektów w Javie oraz klasy anonimowej OnClickListener
+- dodaj przycisk o nazwie Toast pod tekstem Hello World!
+- wykorzystując metody findViewById() oraz klasy anonimowej OnClickListener utwórz funkcjonalność zapewniającą wyświetlanie krótkiej wiadomości Toast
 - uruchom emulator w celu sprawdzenia poprawności wykonania ćwiczenia
 
 
@@ -24,7 +24,7 @@
 ## Zadanie 3
 ### Nawigacja między stronami
 - dodaj przycisk o nazwie Next
-- w stwórz nową aktywność w pakiecie projektu (Empty Views Activity z językiem Java)
+- stwórz nową aktywność w pakiecie projektu (Empty Views Activity z językiem Java)
 - wykonaj przejście do nowej aktywności
 - następnie dodaj przycisk Back na nowej stronie i zapewnij możliwość powrotu do aktywności głównej
 
