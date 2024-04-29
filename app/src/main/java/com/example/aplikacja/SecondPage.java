@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -88,11 +87,11 @@ public class SecondPage extends AppCompatActivity {
     private void validateData() {
         sourceLanguageText = InputText.getText().toString().trim();
         Log.d(TAG, "validateData: sourceLanguageText"+ sourceLanguageText );
-        if(sourceLanguageText.isEmpty()){
-            Toast.makeText(this,"Enter text to translate...", Toast.LENGTH_SHORT).show();
-        } else if (InputLanguageTitle == null) {
+        if (InputLanguageTitle == null) {
             Toast.makeText(this, "Please select input language.", Toast.LENGTH_SHORT).show();
-        }else if (OutputLanguageTitle == null) {
+        } else if(sourceLanguageText.isEmpty()){
+            Toast.makeText(this,"Enter text to translate...", Toast.LENGTH_SHORT).show();
+        } else if (OutputLanguageTitle == null) {
             Toast.makeText(this, "Please select output language.", Toast.LENGTH_SHORT).show();
         } else {
             startTranslations();
