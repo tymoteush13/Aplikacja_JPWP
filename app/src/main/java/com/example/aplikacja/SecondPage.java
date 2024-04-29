@@ -127,16 +127,23 @@ public class SecondPage extends AppCompatActivity {
         PopupMenu popupMenu = new PopupMenu(this, InputLanguageButton);
         languageArrayList.sort(Comparator.comparing(ModelLanguage::getLanguageTitle));
         for(int i=0;i<languageArrayList.size();i++){
-
             popupMenu.getMenu().add(Menu.NONE,i,i,languageArrayList.get(i).getLanguageTitle());
         }
         popupMenu.show();
         popupMenu.setOnMenuItemClickListener(item -> {
             int  position = item.getItemId();
 
+
             InputLanguageCode = languageArrayList.get(position).LanguageCode;
             InputLanguageTitle = languageArrayList.get(position).LanguageTitle;
             InputLanguageButton.setText(InputLanguageTitle);
+
+            if (InputLanguageCode.equals(OutputLanguageCode)) {
+                OutputLanguageCode = null;
+                OutputLanguageTitle = null;
+                OutputLanguageButton.setText("Select Language");
+                return false;
+            }
 
             Log.d(TAG, "onMenuItemClick: sourceCode" + InputLanguageCode);
             Log.d(TAG, "onMenuItemClick: titleCode" + InputLanguageTitle);
@@ -167,7 +174,6 @@ public class SecondPage extends AppCompatActivity {
 
     }
 
-
     private void loadLanguages() {
         languageArrayList=new ArrayList<>();
         List<String>languageCodeList = TranslateLanguage.getAllLanguages();
@@ -182,5 +188,4 @@ public class SecondPage extends AppCompatActivity {
             languageArrayList.add(modelLanguage);
         }
     }
-
 }
