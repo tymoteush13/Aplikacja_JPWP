@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -69,8 +70,6 @@ public class SecondPage extends AppCompatActivity {
             startActivity(intent);
         });
 
-        ImageButton changeButton = findViewById(R.id.ChangeButton);
-        changeButton.setOnClickListener(v -> swapLanguages());
 
         InputText = findViewById(R.id.InputText);
         OutputText =findViewById(R.id.OutputText);
@@ -79,7 +78,6 @@ public class SecondPage extends AppCompatActivity {
         MaterialButton translationButton = findViewById(R.id.TranslationButton);
 
         loadLanguages();
-        changeButton.setOnClickListener(v -> swapLanguages());
         InputLanguageButton.setOnClickListener(v -> selectSourceLanguage());
         OutputLanguageButton.setOnClickListener(v -> selectDestinationLanguage());
         translationButton.setOnClickListener(v -> validateData());
@@ -129,9 +127,7 @@ public class SecondPage extends AppCompatActivity {
         PopupMenu popupMenu = new PopupMenu(this, InputLanguageButton);
         languageArrayList.sort(Comparator.comparing(ModelLanguage::getLanguageTitle));
         for(int i=0;i<languageArrayList.size();i++){
-            if (OutputLanguageTitle != null && OutputLanguageTitle.equals(languageArrayList.get(i).getLanguageTitle())) {
-                continue;
-            }
+
             popupMenu.getMenu().add(Menu.NONE,i,i,languageArrayList.get(i).getLanguageTitle());
         }
         popupMenu.show();
@@ -156,7 +152,6 @@ public class SecondPage extends AppCompatActivity {
             popupMenu.getMenu().add(Menu.NONE,i,i,languageArrayList.get(i).getLanguageTitle());
         }
         popupMenu.show();
-
         popupMenu.setOnMenuItemClickListener(item -> {
             int  position = item.getItemId();
 
@@ -170,28 +165,6 @@ public class SecondPage extends AppCompatActivity {
             return false;
         });
 
-    }
-
-
-    private void swapLanguages() {
-        String temp = InputText.getText().toString();
-        InputText.setText(OutputText.getText().toString());
-        OutputText.setText(temp);
-
-        String tempCode = InputLanguageCode;
-        InputLanguageCode = OutputLanguageCode;
-        OutputLanguageCode = tempCode;
-
-        int tempId = InputLanguageButton.getId();
-        InputLanguageButton.setId(OutputLanguageButton.getId());
-        OutputLanguageButton.setId(tempId);
-
-        MaterialButton tempButton = InputLanguageButton;
-        InputLanguageButton = OutputLanguageButton;
-        OutputLanguageButton = tempButton;
-
-        InputLanguageButton.setText(InputLanguageTitle);
-        OutputLanguageButton.setText(OutputLanguageTitle);
     }
 
 

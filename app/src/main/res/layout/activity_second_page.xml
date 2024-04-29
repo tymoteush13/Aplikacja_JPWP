@@ -73,7 +73,7 @@
                 android:id="@+id/ChangeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/change"
+                android:src="@drawable/baseline_keyboard_double_arrow_right_24"
                 android:padding="20dp"
                 android:background="?attr/selectableItemBackground"
                 android:layout_marginLeft="10dp"
@@ -97,7 +97,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@drawable/ramka"
+            android:background="@android:color/transparent"
             android:layout_marginTop="15dp">
 
             <EditText
@@ -108,19 +108,20 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
-                android:background="@android:color/transparent"
+                android:background="@drawable/ramka"
                 android:gravity="left"
                 android:hint="@string/enter_phrase"
                 android:minHeight="250dp"
                 android:paddingTop="5dp"
-                android:paddingLeft="10dp"
+                android:paddingStart="5dp"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/OutputText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
+                android:background="@drawable/ramka"
+                android:paddingStart="5dp"
                 android:hint="@string/translated_phrase"
                 android:gravity="start"
                 android:layout_gravity="right"
