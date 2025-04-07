@@ -1,35 +1,24 @@
-# Zadania praktyczne
-## Zadanie 1
-### Stwórz nowy projekt 
-- Kliknij New Project, później wybierz Empty Views Activity z szablonów aktywności, a następnie język Java
-- W pliku activity_main zmień kolor tła na inny kolor 
-- Uruchom aplikację w emulatorze i sprawdź, czy twoja aplikacja działa
+# Aplikacja_JPWP 
+
+**Description**  
+Learn foreign languages easily and effectively with our Android app! Whether you're a beginner or an advanced learner, this app helps you expand your vocabulary and improve your skills in a fun and interactive way—anytime, anywhere.
+
+---
+
+## Core Features  
+- **Google Translate Integration**: Instantly translate words and sentences in any language.
+- **Flashcard Game**: A dynamic way to practice vocabulary.
+  - Add your own flashcards.
+  - Remove the ones you no longer need.
+  - Play and test your knowledge. 
+
+---
+
+## Used Technologies  
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84?style=for-the-badge&logo=android-studio&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 
 
-![obraz](https://github.com/tymoteush13/Aplikacja_JPWP/assets/150467667/8532adb5-70bd-488e-8a4e-bee46b88233c)
 
 
-
-
-## Zadanie 2
-### Dodaj wiadomość Toast 
-- dodaj przycisk o nazwie Toast pod tekstem Hello World!
-- wykorzystując metody findViewById() oraz klasy anonimowej OnClickListener utwórz funkcjonalność zapewniającą wyświetlanie krótkiej wiadomości Toast
-- uruchom emulator w celu sprawdzenia poprawności wykonania ćwiczenia
-
-
- ![obraz](https://github.com/tymoteush13/Aplikacja_JPWP/assets/150467667/b5125ee0-db74-48bb-a2f7-2bdab39ae674)
-
-
-## Zadanie 3
-### Nawigacja między stronami
-- dodaj przycisk o nazwie Next
-- stwórz nową aktywność w pakiecie projektu (Empty Views Activity z językiem Java)
-- wykonaj przejście do nowej aktywności
-- następnie dodaj przycisk Back na nowej stronie i zapewnij możliwość powrotu do aktywności głównej
-
-
-![obraz](https://github.com/tymoteush13/Aplikacja_JPWP/assets/150467667/4d9837d2-78bb-4065-aa46-a0f6c98a2ae2)                                        ![obraz](https://github.com/tymoteush13/Aplikacja_JPWP/assets/150467667/c7aec67d-cff0-46d7-90e0-1470a9495f5d)
-
-
-# Powodzenia! 🤗
