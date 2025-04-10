@@ -1,4 +1,4 @@
-# Aplikacja_JPWP 
+# A mobile application for creating flashcards % translator
 
 **Description**  
 Learn foreign languages easily and effectively with our Android app! Whether you're a beginner or an advanced learner, this app helps you expand your vocabulary and improve your skills in a fun and interactive way—anytime, anywhere.
